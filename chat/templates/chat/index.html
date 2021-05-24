@@ -1,25 +1,27 @@
+<!-- chat/templates/chat/index.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
+    <title>Chat Login</title>
 </head>
 <body>
-    What chat room would you like to enter?<br/>
-    <input id="room-name-input" type="text" size="100"/><br/>
-    <input id="room-name-submit" type="button" value="Enter"/>
+    来一个好的名字能让你的好朋友更容易记住你！<br>
+    输入你的名字开始你的聊天吧！<br>
+    <input id="name-input" type="text" size="10"><br>
+    <input id="name-submit" type="button" value="Enter">
 
     <script>
-        document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
+        document.querySelector('#name-input').focus();
+        document.querySelector('#name-input').onkeyup = function(e) {
             if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
+                document.querySelector('#name-submit').click();
             }
         };
 
-        document.querySelector('#room-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/chat/' + roomName + '/';
+        document.querySelector('#name-submit').onclick = function(e) {
+            var name = document.querySelector('#name-input').value;
+            window.location.pathname = '/chat/' + name
         };
     </script>
 </body>

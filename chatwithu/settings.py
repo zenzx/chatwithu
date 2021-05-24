@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o)hdw%sz-e)s#q@cm)ak0az%*#-b=+n1b5yzx-k*p#+w*2b2@%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [r'*']
 
 
 # Application definition
@@ -127,4 +127,12 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Channels
-ASGI_APPLICATION = 'chatwithu.routing.application'
+ASGI_APPLICATION = 'chatwithu.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channles_redis.core.RedisChanneLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 63790)],
+        },
+    },
+}
