@@ -128,11 +128,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Channels
 ASGI_APPLICATION = 'chatwithu.asgi.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channles_redis.core.RedisChanneLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 63790)],
-        },
-    },
-}
+
+# config redis
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channles_redis.core.RedisChanneLayer',
+#         'CONFIG': {
+#             "hosts": [('127.0.0.1', 63790)],
+#         },
+#     },
+# }
