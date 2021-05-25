@@ -1,10 +1,12 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
-    return render(request, 'chat/index.html',)
+def login(request):
+    return render(request, 'chat/login.html',)
 
 def room(requests, room_name):
-    return render(requests, 'chat/room.html', {
-        'room_name': room_name,
-    })
+    requests.encoding='utf-8'
+    if 'user' in requests.GET and requests.GET['user']:       
+        return render(requests, 'chat/room.html', {
+            'room_name': room_name,
+        })
